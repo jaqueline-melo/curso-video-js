@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando números</title>
+</head>
+
+<body>
+    <!-- <h1>Somando valores</h1>
+    <input type="number" name="txtn1" id="txtn1">+
+    <input type="number" name="txtn2" id="txtn2">
+    <input type="button" value="Somar" onclick='somar()'>
+    <div id="res">Resultado</div> -->
+    <h2>IMC</h2>
+
+    <input type="number" id="peso"> kg
+    <input type="number" id="altura"> cm
+    <input type="button" value="Calcular" onclick='calcular()'>
+    <div id=resultado></div>
+
+    <script>
+
+        function calcular() {
+            const $ = document
+            const pesoInput = $.getElementById('peso')
+            const alturaInput = $.getElementById('altura')
+            const resultado = $.getElementById('resultado')
+            const peso = parseInt(pesoInput.value)
+            const altura = parseInt(alturaInput.value)
+
+            if (!isNaN(peso) && !isNaN(altura)) {
+                const calcular = (pesoInput.value / (alturaInput.value * alturaInput.value)) * 10000
+                resultado.innerHTML = `Seu imc é ${calcular.toFixed(2)}`
+            }
+            else {
+                if (isNaN(peso) && !isNaN(altura)) {
+                    resultado.innerHTML = 'Peso é obrigatorio'
+                    return 
+                }
+                if (!isNaN(peso) && isNaN(altura)) {
+                    resultado.innerHTML= 'Altura é obrigatorio'
+                    return 
+                }
+                resultado.innerHTML = 'Todos os campos são obrigatorios!'
+            }
+        }
+/* TODO:
+Quando eu começar digitar o peso ou a altura a todas as frase de alerta tem que sumir.
+Fazer isso no mesmo else.Criar uma função generica para os doi inputs
+*/
+/*TODO:
+  Criar uma funcão para saber a  velocidade, se esta dentro da velocidade ou acima do permitido usando somente if.Criar uma função para saber se se é extrangeiro ou se è brasileiro usando if e else*/
+/*Criar uma função para saber se esta dentro do peso iguar se esta acima do peso,obeso, usando if e else  no immc*/
+
+    </script>
+</body>
+
+</html>

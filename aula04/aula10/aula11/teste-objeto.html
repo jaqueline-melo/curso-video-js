@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carro</title>
+</head>
+
+<body>
+    <h1>Carro</h1>
+    <select id="carro" onChange='verificarCarro(event)'>
+        <option value="id">Id</option>
+        <option value="marca">Marca</option>
+        <option value="cor">Cor</option>
+        <option value="modelo">Modelo</option>
+    </select>
+    <div id='mensagem'></div>
+    <script>
+
+        const carro = {
+            id: 1,
+            marca: "Fiat",
+            cor: "Prata",
+            modelo: 2015
+        }
+
+        function verificarCarro(event) {
+            const prop = event.target.value
+            const mensagem = document.getElementById('mensagem')
+
+            mensagem.innerHTML = `A ${String(prop).toUpperCase()} é ${carro[prop]}`
+        }
+    </script>
+</body>
+
+</html>

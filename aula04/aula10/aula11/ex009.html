@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+</head>
+
+<body>
+    <h1>Nacionalidade</h1>
+    <select id="nacionalidade" onChange='verificarNacionalidade(event)'>
+        <option value="">Selecione</option>
+        <option value="br">Brasil</option>
+        <option value="eua">Estados Unidos</option>
+        <option value="arg">Argentina</option>
+    </select>
+    <div id='mensagem'></div>
+    <div id="nacionalidade"></div>
+    <script>
+        function verificarNacionalidade(event) {
+            const pais = event.target.value
+            const nacionalidade = document.getElementById('nacionalidade')
+            const mensagem = document.getElementById('mensagem')
+            if (pais === "br") {
+                mensagem.innerHTML = 'Você é Brasileiro'
+                return
+            }
+            if (pais === "eua") {
+                mensagem.innerHTML = 'Você é Extrangeiro'
+                return
+            }
+            if (pais === "arg") {
+                mensagem.innerHTML = 'Você é Argentino'
+                return
+            }
+            mensagem.innerHTML = ""
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de votação</title>
+</head>
+
+<body>
+    <h1>Sistema de votação</h1>
+
+    <input type="number" name="idade" id="idade" placeholder="Digite sua idade" oninput="bloquearBotao(event)">
+    <button disabled id="botaoVerificar" onclick="verificarIdadeVotacao()">Verificar</button>
+    <div id="mensagem"></div>
+    <script>
+        function verificarIdadeVotacao() {
+            const IDADE_MAX_OBRIGATORIA = 66
+            const IDADE_MIN_OBRIGATORIA = 18
+            const IDADE_MIN_OPCIONAL = 16
+            const idadeInput = document.getElementById('idade')
+            const mensagem = document.getElementById('mensagem')
+            const idade = Number(idadeInput.value)
+
+            if ((idade >= IDADE_MIN_OPCIONAL && idade < IDADE_MIN_OBRIGATORIA) || idade > IDADE_MAX_OBRIGATORIA) {
+                return mensagem.innerHTML = 'Voto Opcional';
+            }
+            if (idade >= IDADE_MIN_OBRIGATORIA && idade <= IDADE_MAX_OBRIGATORIA) {
+                return mensagem.innerHTML = 'Voto Obrigatório';
+            }
+
+            mensagem.innerHTML = 'Não vota';
+
+        }
+
+        function bloquearBotao(event) {
+            const idade = event.target.value
+            const botaoVerificar = document.getElementById("botaoVerificar")
+
+            if (idade) {
+                botaoVerificar.disabled = false;
+                return
+            }
+            botaoVerificar.disabled = true;
+        }
+
+    </script>
+</body>
+
+</html>

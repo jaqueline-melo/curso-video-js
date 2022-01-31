@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocidade</title>
+</head>
+
+<body>
+    <h1>Simulador velocidade</h1>
+    <input type="number" name="km/h" id="velocidade"> km/h
+    <input type="button" value="Verificar" onclick="verificarVelocidadeMaximaPermitida()">
+    <div id="mensagem"></div>
+    <div id="resultado"></div>
+     <script>
+        function verificarVelocidadeMaximaPermitida() {
+            const VELOCIDADE_MAXIMA_PERMITIDA = 60
+            const VELOCIDADE_MINIMA_PERMITIDA = 20
+            const velocidadeInput = document.getElementById('velocidade')
+            const resultado = document.getElementById('resultado')
+            const mensagem = document.getElementById('mensagem')
+            const velocidade = Number(velocidadeInput.value)
+
+            mensagem.innerHTML = (`A velocidade do seu carro é ${velocidade} km/h`)
+            if (velocidade >= VELOCIDADE_MINIMA_PERMITIDA && velocidade <= VELOCIDADE_MAXIMA_PERMITIDA) {
+                mensagem.innerHTML = (`Dirija sempre com o cinto de segurança`)
+                return
+            }
+            if (velocidade > VELOCIDADE_MAXIMA_PERMITIDA) {
+                resultado.innerHTML = (`Você ultrapassou a velocidade está MULTADO!`)
+
+                return
+            }
+            resultado.innerHTML = (`Sua velocidade esta abaixo do permitido`)
+        }
+
+
+
+        
+      
+
+    </script>
+</body>
+
+</html>

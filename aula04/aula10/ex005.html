@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Dom</title>
+    <style>
+        #eventos {
+            font: normal;
+            font-size: 1.5em;
+            background-color: rgb(255, 255, 255);
+            color: rgb(22, 21, 21);
+            line-height: 200px;
+            width: 300px;
+            height: 200px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="eventos">
+        Interaja....    
+        <img src="/img/imagem de pessoas felizes sorrindo - Pesquisa Google.html">
+    </div>
+ 
+    <script>
+        var eventos = window.document.getElementById('eventos')
+        eventos.addEventListener('click', clicar)
+        eventos.addEventListener('mouseenter', entrar)
+        eventos.addEventListener('mouseout', sair)
+
+        function clicar() {
+            eventos.innerText = 'Parabéns você clicou'
+            eventos.style.background='green'
+        
+        }
+        function entrar() {
+            eventos.innerText = 'Você entrou'
+            eventos.style.background='blue'
+      
+
+        }
+        function sair() {
+            eventos.innerText = 'Você saiu,'    
+            eventos.style.background='red'
+
+        }
+      
+ 
+        
+        
+
+    </script>
+</body>
+
+</html>

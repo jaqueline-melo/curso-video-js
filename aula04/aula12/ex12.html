@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario</title>
+</head>
+
+<body>
+    <h1 id="horario"></h1>
+    <div id="mensagem"></div>
+    <script>
+
+
+
+        function acrecentaZero(num) {
+            if (num < 10) {
+                return `0${num}`
+            }
+
+            return num
+        }
+
+        function saudacao(hora) {
+            const MANHA = 6
+            const TARDE = 12
+            const NOITE = 18
+            const mensagem = document.getElementById('mensagem')
+            let foto=document.getElementById('foto')
+            
+            if(hora>=MANHA && hora<TARDE){
+                mensagem.innerHTML="Bom dia!"
+                return
+            }
+
+            if(hora>=TARDE && hora<NOITE){
+                mensagem.innerHTML="Boa Tarde!"
+                return
+            }
+
+            if(hora>=NOITE || hora<MANHA){
+                mensagem.innerHTML="Boa Noite!"
+                
+
+
+
+
+            }
+
+        }
+
+        function periodo() {
+            
+            const hora = now.getHours();
+            const minuto = now.getMinutes()
+            const segundo = now.getSeconds();
+            const horario = document.getElementById('horario')
+
+            horario.innerHTML = `${acrecentaZero(hora)}:${acrecentaZero(minuto)}:${acrecentaZero(segundo)}`
+
+            saudacao(hora)
+         
+        }
+
+        setInterval(periodo, 1000)
+
+    </script>
+</body>
+
+</html>
